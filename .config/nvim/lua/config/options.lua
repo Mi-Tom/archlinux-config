@@ -10,6 +10,7 @@ opt.updatetime = 250
 
 opt.termguicolors = true
 opt.signcolumn = "yes"
+opt.fillchars = { vert = "│"}
 
 opt.number = true
 

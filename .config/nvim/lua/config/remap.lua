@@ -5,3 +5,8 @@ vim.keymap.set("n", "<leader>s", vim.cmd.split, { noremap = true, desc = "Horizi
 vim.keymap.set("n", "<leader>v", vim.cmd.vsplit, { noremap = true, desc = "Horizintal split" })
 vim.keymap.set("n", "<leader>x", vim.cmd.close, {noremap = true, desc = "Close window"})
 
+vim.keymap.set("n", "<M-h>", "<cmd>vertical resize -5<cr>", { noremap = true, desc = "Decrease window width" })
+vim.keymap.set("n", "<M-j>", "<cmd>resize -5<cr>", { noremap = true, desc = "Decrease window height" })
+vim.keymap.set("n", "<M-k>", "<cmd>resize +5<cr>", { noremap = true, desc = "Increase window height" })
+vim.keymap.set("n", "<M-l>", "<cmd>vertical resize +5<cr>", { noremap = true, desc = "Increase window width" })
+
