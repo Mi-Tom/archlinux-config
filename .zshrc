@@ -40,38 +40,7 @@ parse_git_status() {
     echo " %F{yellow}($branch$status_symbol)%f"
 }
 
-# --- Prompt mód: horizontal (poslední 2 adresáře) / vertical (celá cesta) ---
-# Přepínání: pm h / pm v   nebo   prompt-mode horizontal / prompt-mode vertical
-PROMPT_MODE="horizontal"
-
-_prompt_path() {
-    if [[ "$PROMPT_MODE" == "vertical" ]]; then
-        echo "%~"
-    else
-        local full="${PWD/#$HOME/~}"
-        local parts=("${(@s:/:)full}")
-        if (( ${#parts[@]} <= 2 )); then
-            echo "$full"
-        else
-            echo "…/${parts[-2]}/${parts[-1]}"
-        fi
-    fi
-}
-
-prompt-mode() {
-    case "$1" in
-        horizontal|h) PROMPT_MODE="horizontal" ;;
-        vertical|v)   PROMPT_MODE="vertical"   ;;
-        *)
-            echo "Usage: pm [h|v]  or  prompt-mode [horizontal|vertical]"
-            return 1
-            ;;
-    esac
-    echo "Prompt mode: $PROMPT_MODE"
-}
-
-
-PROMPT='%F{white}%D{%H:%M}%f %B%F{green}%n@%m%f%b %F{cyan}$(_prompt_path)%f$(parse_git_status)
+PROMPT='%F{white}%D{%H:%M}%f %B%F{green}%n@%m%f%b %F{cyan}%~%f$(parse_git_status)
 %F{white}€%f '
 
 export EDITOR=nvim
@@ -84,7 +53,7 @@ alias ls="ls --group-directories-first --color=auto"
 alias grep="grep --color=auto"
 
 alias ..="cd .."
-alias ...="cd ../.. && ls -d */ && echo "" && ls -d .*/"
+alias ...="cd ../.."
 alias ~="cd ~"
 alias dot="cd ~/.config/my-dotfiles"
 
@@ -92,7 +61,7 @@ alias vim="nvim"
 
 alias gti="git"
 
-alias pm="prompt-mode"
+fastfetch
 
 # --- Histori settings ---
 HISTSIZE=10000
@@ -106,3 +75,4 @@ eval "$(zoxide init --cmd cd zsh)"
 # Created by `pipx` on 2026-04-14 09:07:09
 export PATH="$PATH:/home/michal/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
+
