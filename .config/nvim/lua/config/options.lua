@@ -22,6 +22,7 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 
 opt.number = true
+opt.relativenumber = true
 
 opt.cursorline = true
 opt.scrolloff = 10
@@ -44,8 +45,6 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.shiftround = true
 opt.smartindent = true
-
-opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 
 opt.incsearch = true
 opt.inccommand = "nosplit"

@@ -9,6 +9,13 @@ return {
         scope = { enabled = true },
         scroll = { enabled = true },
         words = { enabled = true },
+        picker = {
+            enabled = true,
+            sources = {
+                files = { hidden = true },
+                grep = { hidden = true },
+            },
+        },
         dashboard = {
             preset = {
                 header = [[

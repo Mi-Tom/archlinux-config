@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 map("n", "<leader>e", vim.cmd.Ex, { noremap = true, desc = "Open file explorer" })
-map({ "i", "x" }, "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit to normal mode" })
+map("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit to normal mode" })
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })

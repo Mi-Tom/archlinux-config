@@ -25,7 +25,6 @@ return {
           lualine_a = { "mode" },
           lualine_b = { "branch" },
           lualine_c = {
-            -- Vyčištěno od LazyVim funkcí, nahrazeno standardní relativní cestou k souboru
             { "filename", path = 1 },
             {
               "diagnostics",
@@ -33,7 +32,6 @@ return {
             },
           },
           lualine_x = {
-            -- Zde zůstávají integrace, pokud používáš doplňkové pluginy
             { "filetype", icon_only = true },
             {
               "diff",
